@@ -1,0 +1,19 @@
+<div *ngIf="completedTasks">
+  <ul class="list-group list-group-flush">
+    <li *ngFor="let todo of completedTasks" class="list-group-item">
+      {{ todo.description }}
+    </li>
+  </ul>
+
+  <p *ngIf="!completedTasks.length">No completed tasks</p>
+
+  <br />
+  <button
+    type="button"
+    class="btn btn-danger"
+    [disabled]="!completedTasks.length"
+    (click)="deleteCompletedTasks()"
+  >
+    Delete all completed tasks
+  </button>
+</div>
